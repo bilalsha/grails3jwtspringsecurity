@@ -1,0 +1,39 @@
+# build artifacts
+build/
+target/
+
+# temp files
+activemq-data/
+out/
+tmp/
+logs/
+*.log
+*.log.*
+*~
+.ant-targets*.xml
+*.jasper
+*.BAK
+
+# external libraries
+libs/
+
+# project files
+Thumbs.db
+.DS_Store
+.gradle
+.idea
+*.iml
+*.ipr
+*.iws
+.project
+.settings
+.classpath
+.link_to_grails_plugins/
+.asscache
+
+# local git configuration
+.gitattributes
+#used by gradle-properties-plugin
+gradle-local.properties
+*.properties
+!gradle.properties
