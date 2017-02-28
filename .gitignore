@@ -37,3 +37,4 @@ Thumbs.db
 gradle-local.properties
 *.properties
 !gradle.properties
+.gitignore
