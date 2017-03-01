@@ -19,6 +19,10 @@ class LoginController {
 
     def statelessTokenProvider
 
+    def cookieService
+
+    def tokenHandler
+
     /**
      * Dependency injection for the authenticationTrustResolver.
      */
@@ -62,8 +66,9 @@ class LoginController {
 
     def authentication = {
         def token = statelessTokenProvider.generateToken(response, params['username'], null, new HashMap<>())
-        response.addCookie(new Cookie("access-token", token))
-        render "HI There Sir"
+        Cookie cookie = new Cookie("access-token", token)
+        cookieService.setCookie(cookie)
+        redirect controller: 'home', action: 'index'
     }
 
     /**

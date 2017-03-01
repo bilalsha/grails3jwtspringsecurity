@@ -30,15 +30,14 @@ class StateLessAuthenticationFilter extends GenericFilterBean{
 
         // If the request URI doesn't contain the filterProcessesUrl,
         // it isn't a request that should be handled by this filter
-        if(!request.getRequestURI().contains(filterProcessesUrl)) {
+        if(!request.getCookie("access-token")) {
             filterChain.doFilter(request, response)
             return
         }
 
-        Authentication authentication = authenticationService.getAuthentication(request);
+        Authentication authentication = authenticationService.getAuthentication(request.getCookie("access-token"));
         SecurityContextHolder.getContext().setAuthentication(authentication);
         filterChain.doFilter(request, response);
-        SecurityContextHolder.getContext().setAuthentication(null);
     }
 
     TokenAuthenticationService getAuthenticationService() {

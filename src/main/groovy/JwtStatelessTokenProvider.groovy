@@ -52,8 +52,6 @@ class JwtStatelessTokenProvider implements StatelessTokenProvider{
         String payload = new JsonBuilder(data).toString()
         String signature = cryptoService.hash("${UrlSafeBase64Utils.encode(header.bytes)}.${UrlSafeBase64Utils.encode(payload.bytes)}")
 
-        CookieUtils.create(httpServletResponse, "JWT-TOKEN", "${UrlSafeBase64Utils.encode(header.bytes)}.${UrlSafeBase64Utils.encode(payload.bytes)}.${signature}", false, -1, "localhost");
-
         return "${UrlSafeBase64Utils.encode(header.bytes)}.${UrlSafeBase64Utils.encode(payload.bytes)}.${signature}"
     }
 

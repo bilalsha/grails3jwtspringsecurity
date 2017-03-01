@@ -42,8 +42,7 @@ dependencies {
     compile group: 'io.jsonwebtoken', name: 'jjwt', version: '0.7.0'
     compile 'joda-time:joda-time:2.4'
     compile 'org.grails.plugins:spring-security-core:3.1.1'
-    //compile 'org.grails.plugins:cookie-session:3.0.1'
-
+    compile 'org.grails.plugins:cookie:2.0.5'
 
     compile "org.springframework.boot:spring-boot-starter-logging"
     compile "org.springframework.boot:spring-boot-autoconfigure"

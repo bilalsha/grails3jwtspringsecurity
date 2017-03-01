@@ -1,4 +1,5 @@
 import com.jwt.security.User
+import org.springframework.security.core.Authentication
 import org.springframework.security.core.GrantedAuthority
 
 /**
@@ -9,7 +10,7 @@ import org.springframework.security.core.GrantedAuthority
  * Created by bilalshah on 28/02/2017
  *
  */
-class UserAuthentication {
+class UserAuthentication implements Authentication {
 
     private final User user;
     private boolean authenticated = true;

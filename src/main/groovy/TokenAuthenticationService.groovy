@@ -18,14 +18,14 @@ class TokenAuthenticationService {
     private static final String AUTH_HEADER_NAME = "X-AUTH-TOKEN";
     private String secret;
     private TokenHandler tokenHandler;
+    private StatelessTokenProvider statelessTokenProvider;
 
     public void addAuthentication(HttpServletResponse response, Authentication authentication) {
         final User user = authentication.getDetails();
         response.addHeader(AUTH_HEADER_NAME, tokenHandler.createTokenForUser(user));
     }
 
-    public Authentication getAuthentication(HttpServletRequest request) {
-        final String token = request.getHeader(AUTH_HEADER_NAME);
+    public Authentication getAuthentication(String token) {
         if (token != null) {
             final User user = tokenHandler.parseUserFromToken(token);
             if (user != null) {

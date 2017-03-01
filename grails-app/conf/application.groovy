@@ -26,3 +26,5 @@ grails.plugin.springsecurity.filterChain.chainMap = [
 	[pattern: '/**',             filters: 'JOINED_FILTERS']
 ]
 
+grails.plugins.cookie.cookieage.default = -1
+grails.plugins.cookie.path.defaultStrategy = '/'
